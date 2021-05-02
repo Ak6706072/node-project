@@ -1,9 +1,9 @@
-var http = require("http");
+const event = require("event");
 
-//create a server object:
-http
-  .createServer(function (req, res) {
-    res.write("Hello World!"); //write a response to the client
-    res.end(); //end the response
-  })
-  .listen(8080); //the server object listens on port 8080
+const myEvent = new event();
+
+myEvent.on("someEvent", () => {
+  console.log("hello event");
+});
+
+myEvent.emmit("someEvent");
